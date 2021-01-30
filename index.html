@@ -192,6 +192,7 @@
 
             const economyClassTicket = document.getElementById('economy-class-count').value
 
+            // Fixing the minimum ticket purchase
             if (firstClassTicket > 0 || economyClassTicket > 0) {
 
                 const bookingPage = document.getElementById('booking-page')
@@ -200,9 +201,7 @@
                 const confirmingPage = document.getElementById('confirming-page')
                 confirmingPage.style.display = 'block'
 
-
                 document.getElementById('first-class').innerText = firstClassTicket
-
 
                 document.getElementById('economy-class').innerText = economyClassTicket
 
