@@ -105,6 +105,7 @@
                     </div>
                 </div>
             </div>
+            <p class="invalid-text" id="invalid-ticket-count"></p>
             <button id="book-now" class="btn-style">Book Now</button>
         </div>
 
@@ -186,20 +187,33 @@
         // Code for Displaying Confirmation Page
         const bookNowBtn = document.getElementById('book-now')
         bookNowBtn.addEventListener('click', function () {
-            const bookingPage = document.getElementById('booking-page')
-            bookingPage.style.display = 'none'
-
-            const confirmingPage = document.getElementById('confirming-page')
-            confirmingPage.style.display = 'block'
 
             const firstClassTicket = document.getElementById('first-class-count').value
-            document.getElementById('first-class').innerText = firstClassTicket
 
             const economyClassTicket = document.getElementById('economy-class-count').value
-            document.getElementById('economy-class').innerText = economyClassTicket
 
-            const totalPrice = document.getElementById('total').innerText
-            document.getElementById('total-price').innerText = totalPrice
+            if (firstClassTicket > 0 || economyClassTicket > 0) {
+
+                const bookingPage = document.getElementById('booking-page')
+                bookingPage.style.display = 'none'
+
+                const confirmingPage = document.getElementById('confirming-page')
+                confirmingPage.style.display = 'block'
+
+
+                document.getElementById('first-class').innerText = firstClassTicket
+
+
+                document.getElementById('economy-class').innerText = economyClassTicket
+
+                const totalPrice = document.getElementById('total').innerText
+                document.getElementById('total-price').innerText = totalPrice
+            }
+            else {
+                const invalidTicketWarning = document.getElementById('invalid-ticket-count')
+                invalidTicketWarning.innerText = 'Minimum 1 ticket should be selected.'
+                invalidTicketWarning.style.color = 'red'
+            }
         })
 
     </script>
